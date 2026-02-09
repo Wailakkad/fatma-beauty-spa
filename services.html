@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>FatmaBea Luxury Spa - Services & Tarifs</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;display=swap"
+        rel="stylesheet" />
+    <link href="public/animations.css" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#046307", // Emerald Green
+                        champagne: "#F5F5DC",
+                        "background-light": "#FDFCF5", // Very light off-white/cream for readability
+                        "background-dark": "#050a06", // Deep dark green/black
+                        "surface-light": "#F5F5DC", // The requested champagne color for sections
+                        "surface-dark": "#0f1f12",
+                    },
+                    fontFamily: {
+                        display: ["Playfair Display", "serif"],
+                        body: ["Lato", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                        'pill': '9999px',
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                    }
+                },
+            },
+        };
+    </script>
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #046307;
+            border-radius: 4px;
+        }
+
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-200 font-body antialiased transition-colors duration-300">
+
+    <!-- Navbar (Always opaque/styled for this page) -->
+    <nav id="navbar"
+        class="fixed w-full z-50 top-0 bg-background-light/95 backdrop-blur-md shadow-sm text-primary transition-all duration-300 anim-init"
+        data-onload-anim="fade">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center z-20">
+                    <a class="flex items-center" href="index.html">
+                        <img id="nav-logo" alt="FatmaBea Logo"
+                            class="h-8 md:h-12 w-auto object-contain transition-all duration-300"
+                            src="public/logo.png" />
+                    </a>
+                </div>
+
+                <!-- Centered Links -->
+                <div id="nav-links"
+                    class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 space-x-12 items-center text-primary transition-colors duration-300">
+                    <a class="text-sm font-medium text-primary underline decoration-2 underline-offset-4 pointer-events-none"
+                        href="services.html">Services</a>
+                    <a class="text-sm font-light hover:text-green-700 transition-colors"
+                        href="index.html#about">About</a>
+                    <a class="text-sm font-light hover:text-green-700 transition-colors"
+                        href="index.html#atmosphere">Gallery</a>
+                </div>
+
+                <!-- Right CTA -->
+                <div class="hidden md:flex items-center space-x-6 z-20">
+                    <a id="nav-cta"
+                        class="px-8 py-2.5 bg-transparent border border-primary text-primary rounded-full hover:bg-primary hover:text-white transition-all duration-300 text-sm font-light"
+                        href="index.html#contact">
+                        Contact
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button class="text-primary hover:text-green-700 focus:outline-none" type="button">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Services Page Content Container -->
+    <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-8 pt-32 pb-20 space-y-12">
+
+        <!-- Hero Section (Refined) -->
+        <div class="rounded-3xl bg-gradient-to-br from-primary/5 via-background-light to-primary/5 dark:from-surface-dark dark:to-background-dark p-8 md:p-16 text-center relative overflow-hidden shadow-sm border border-primary/5 anim-init"
+            data-onload-anim="fade-up">
+            <div class="relative z-10">
+                <h1 class="font-display text-3xl md:text-5xl font-semibold text-primary/90 dark:text-white mb-4 anim-init"
+                    data-onload-anim="fade-up" data-anim-delay="1">
+                    Nos Services & Tarifs
+                </h1>
+                <p class="text-sm md:text-base text-gray-600 dark:text-gray-400 max-w-2xl mx-auto font-light leading-relaxed anim-init"
+                    data-onload-anim="fade-up" data-anim-delay="2">
+                    Découvrez une gamme complète de soins conçus pour votre bien-être : Hammam, Coiffure, Onglerie et
+                    plus encore.
+                </p>
+            </div>
+            <!-- Decorative Accent -->
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-primary/20 rounded-b-lg"></div>
+        </div>
+
+        <!-- Search & Filter Section (Card Style) -->
+        <div class="sticky top-28 z-40 anim-init" data-onload-anim="fade-up" data-anim-delay="3">
+            <div class="bg-white dark:bg-surface-dark rounded-2xl shadow-lg border border-gray-100 dark:border-gray-800 p-4 md:p-6 transition-all duration-300 transform"
+                id="filterCard">
+                <div class="flex flex-col md:flex-row gap-4 md:items-center">
+                    <!-- Search Input -->
+                    <div class="relative flex-1">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                            <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </div>
+                        <input type="text" id="serviceSearch"
+                            class="block w-full pl-12 pr-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl leading-5 bg-gray-50 dark:bg-background-dark placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary sm:text-sm transition duration-150 ease-in-out"
+                            placeholder="Rechercher un service (ex: Massage, OPI)...">
+                    </div>
+
+                    <!-- Category Select -->
+                    <div class="relative w-full md:w-64">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                            <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                            </svg>
+                        </div>
+                        <select id="categoryFilter"
+                            class="block w-full pl-12 pr-10 py-3 border border-gray-200 dark:border-gray-700 rounded-xl leading-5 bg-gray-50 dark:bg-background-dark text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary sm:text-sm appearance-none transition duration-150 ease-in-out cursor-pointer">
+                            <option value="">Toutes catégories</option>
+                            <option value="Hammam">Hammam</option>
+                            <option value="Onglerie">Onglerie</option>
+                            <option value="Coiffure">Coiffure</option>
+                            <option value="Épilation">Épilation</option>
+                            <option value="Massage & Soins">Massage & Soins</option>
+                            <option value="Makeup">Makeup</option>
+                        </select>
+                        <div
+                            class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <!-- Results Badge -->
+                <div class="mt-4 flex justify-between items-center text-xs text-gray-500 dark:text-gray-400 px-1">
+                    <span id="resultsCount">Chargement des services...</span>
+                    <!-- Optional: Clear filters button could go here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Services List Container -->
+        <div id="servicesList" class="min-h-[50vh] space-y-16">
+            <!-- Content injected by JS -->
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-surface-dark text-white pt-20 pb-10 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="md:col-span-1">
+                    <a class="font-display text-4xl italic font-semibold text-white mb-6 block" href="#">FatmaBea</a>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Taking time for yourself isn't selfish—it's essential. Regular massage helps maintain your
+                        physical and emotional well-being over time.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-colors"
+                            href="#">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z">
+                                </path>
+                            </svg>
+                        </a>
+                        <a class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-colors"
+                            href="#">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="font-bold text-white mb-6 uppercase tracking-wider text-sm">Company</h5>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li><a class="hover:text-primary transition-colors" href="#">Treatment</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Booking</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Therapist</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Blog</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Career</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold text-white mb-6 uppercase tracking-wider text-sm">Contact</h5>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li>Phone: +1 (555) 000-0000</li>
+                        <li>Email: Hello@FatmaBea.com</li>
+                        <li>123 Wellness Street, <br />Reluxation City, SPA 45678</li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold text-white mb-6 uppercase tracking-wider text-sm">Policy</h5>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li><a class="hover:text-primary transition-colors" href="#">Terms</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Policy</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Cancellation</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-xs uppercase tracking-widest">
+                <p>© Copyright 2025, All Rights Reserved by FatmaBea</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- IMAGE MAPPING ---
+        // Using placeholders for now - representative images per category
+        const categoryImages = {
+            "Hammam": "https://i.pinimg.com/1200x/7d/bd/9c/7dbd9cf259afefe1eb919b0a62a9c4c5.jpg", // From Home
+            "Onglerie": "https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&q=80&w=800", // Manicure placeholder
+            "Coiffure": "https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&q=80&w=800", // Hair salon placeholder
+            "Épilation": "https://i.pinimg.com/1200x/7a/02/3e/7a023e3f3eecc659f764b1b767b320bf.jpg",
+            "Massage & Soins": "https://lh3.googleusercontent.com/aida-public/AB6AXuChiACQbfPmFq9PFVQhLHBzQctdcyq2r97r_lwPq-5fsoIsYUnTWNb3ZqEWpxuhMurAO3MLC831n__EDIiyBVsKs8iniCG5QcC1rHX21-NKjepC0fABSeEkkfSFnAiV_O1jd-X98uDZfg74A7Tk1MFx8kRrObGIsyCIDYMAkWhCLjG9a-5aIdheiJ93fctnhRCUOxr0oS9oX4K7aTl3fwHhWMkbc8_gg8UBQ4ZdbX94Fc7NlOLvCwDS-Bi5DsHcRq1ZZXUy8f9S1i0", // From Home
+            "Makeup": "https://i.pinimg.com/1200x/c7/ea/b5/c7eab52f4ded23f80730fd543c176149.jpg"
+        };
+
+        // --- SERVICES DATA ---
+        // (Keeping exact same data struct but will inject 'image' property dynamically based on category if not present)
+        const services = [
+            // HAMMAM
+            {
+                id: "hammam-basic",
+                category: "Hammam",
+                group: "Hammam",
+                subcategory: null,
+                name: "Hammam Basic",
+                price: "150 DH",
+                priceNote: "Fleur oranger",
+                details: [
+                    "Savon Noir",
+                    "Gommage",
+                    "Scrub",
+                    "Savonnage"
+                ]
+            },
+            {
+                id: "hammam-fatma",
+                category: "Hammam",
+                group: "Hammam",
+                subcategory: null,
+                name: "Hammam Fatma",
+                price: "250 DH",
+                priceNote: "6 senteurs",
+                details: [
+                    "Savon Noir Aromatisé",
+                    "Gommage (gant offert)",
+                    "Enveloppement + Masque",
+                    "Shampoing & Masque Spa",
+                    "Gommage Scrub",
+                    "Savonnage"
+                ]
+            },
+            {
+                id: "hammam-royal",
+                category: "Hammam",
+                group: "Hammam",
+                subcategory: null,
+                name: "Hammam Royal",
+                price: "350 DH",
+                priceNote: "Nila Oud",
+                details: [
+                    "Hénné",
+                    "Savon Noir",
+                    "Gommage (gant offert)",
+                    "Enveloppement au Nila",
+                    "Teberima",
+                    "Masque de visage",
+                    "Shampoing & Masque Cheveux",
+                    "Gommage au Scrub",
+                    "Savonnage",
+                    "Modelage Main",
+                    "Brume corps"
+                ]
+            },
+
+            // ONGLERIE - MAINS
+            {
+                id: "onglerie-mains-pose-vernis-opi",
+                category: "Onglerie",
+                group: "Onglerie",
+                subcategory: "Mains",
+                name: "Pose vernis OPI (Mains)",
+                price: "50 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "onglerie-mains-pose-french",
+                category: "Onglerie",
+                group: "Onglerie",
+                subcategory: "Mains",
+                name: "Pose French",
+                price: "60 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "onglerie-mains-manucure",
+                category: "Onglerie",
+                group: "Onglerie",
+                subcategory: "Mains",
+                name: "Manucure",
+                price: "80 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "onglerie-mains-manucure-spa",
+                category: "Onglerie",
+                group: "Onglerie",
+                subcategory: "Mains",
+                name: "Manucure Spa",
+                price: "100 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "onglerie-mains-vernis-permanent-ongles",
+                category: "Onglerie",
+                group: "Onglerie",
+                subcategory: "Mains",
+                name: "Vernis Permanent sur ongles",
+                price: "100 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "onglerie-mains-vernis-permanent-faux-ongles",
+                category: "Onglerie",
+                group: "Onglerie",
+                subcategory: "Mains",
+                name: "Vernis Permanent sur faux ongles",
+                price: "150 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "onglerie-mains-gel-nature",
+                category: "Onglerie",
+                group: "Onglerie",
+                subcategory: "Mains",
+                name: "Gel Nature",
+                price: "200 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "onglerie-mains-gel-vernis-permanent",
+                category: "Onglerie",
+                group: "Onglerie",
+                subcategory: "Mains",
+                name: "Gel + Vernis Permanent",
+                price: "250 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "onglerie-mains-gel-vernis-permanent-french",
+                category: "Onglerie",
+                group: "Onglerie",
+                subcategory: "Mains",
+                name: "Gel + Vernis Permanent + French",
+                price: "300 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "onglerie-mains-vernis-permanent-french",
+                category: "Onglerie",
+                group: "Onglerie",
+                subcategory: "Mains",
+                name: "Vernis permanent + French",
+                price: "200 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "onglerie-mains-nail-art",
+                category: "Onglerie",
+                group: "Onglerie",
+                subcategory: "Mains",
+                name: "Nail Art",
+                price: "1 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "onglerie-mains-faux-ongle",
+                category: "Onglerie",
+                group: "Onglerie",
+                subcategory: "Mains",
+                name: "Faux ongle",
+                price: "100 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "onglerie-mains-faux-ongle-avec-OPI",
+                category: "Onglerie",
+                group: "Onglerie",
+                subcategory: "Mains",
+                name: "Faux ongle avec pose OPI",
+                price: "130 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "onglerie-mains-poly-gel",
+                category: "Onglerie",
+                group: "Onglerie",
+                subcategory: "Mains",
+                name: "Poly gel",
+                price: "400 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "onglerie-mains-chablon",
+                category: "Onglerie",
+                group: "Onglerie",
+                subcategory: "Mains",
+                name: "Chablon",
+                price: "400 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "onglerie-mains-baby-boomer",
+                category: "Onglerie",
+                group: "Onglerie",
+                subcategory: "Mains",
+                name: "Baby Boomer",
+                price: "400 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "onglerie-mains-depose-vernis-permanent",
+                category: "Onglerie",
+                group: "Onglerie",
+                subcategory: "Mains",
+                name: "Dépose Vernis Permanent",
+                price: "50 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "onglerie-mains-depose-gel",
+                category: "Onglerie",
+                group: "Onglerie",
+                subcategory: "Mains",
+                name: "Dépose Gel",
+                price: "70 DH",
+                priceNote: "",
+                details: []
+            },
+
+            // ONGLERIE - PIEDS
+            {
+                id: "onglerie-pieds-pose-vernis-opi",
+                category: "Onglerie",
+                group: "Onglerie",
+                subcategory: "Pieds",
+                name: "Pose Vernis OPI (Pieds)",
+                price: "50 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "onglerie-pieds-vernis-permanent-ongles",
+                category: "Onglerie",
+                group: "Onglerie",
+                subcategory: "Pieds",
+                name: "Vernis Permanent sur ongles (Pieds)",
+                price: "100 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "onglerie-pieds-vernis-permanent-faux-ongles",
+                category: "Onglerie",
+                group: "Onglerie",
+                subcategory: "Pieds",
+                name: "Vernis Permanent sur faux ongles (Pieds)",
+                price: "120 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "onglerie-pieds-gel",
+                category: "Onglerie",
+                group: "Onglerie",
+                subcategory: "Pieds",
+                name: "Gel (Pieds)",
+                price: "150 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "onglerie-pieds-pedicure",
+                category: "Onglerie",
+                group: "Onglerie",
+                subcategory: "Pieds",
+                name: "Pedicure",
+                price: "100 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "onglerie-pieds-pedicure-spa",
+                category: "Onglerie",
+                group: "Onglerie",
+                subcategory: "Pieds",
+                name: "Pedicure Spa",
+                price: "150 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "onglerie-pieds-depose-vernis",
+                category: "Onglerie",
+                group: "Onglerie",
+                subcategory: "Pieds",
+                name: "Dépose Vernis",
+                price: "50 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "onglerie-pieds-depose-gel",
+                category: "Onglerie",
+                group: "Onglerie",
+                subcategory: "Pieds",
+                name: "Dépose Gel (Pieds)",
+                price: "70 DH",
+                priceNote: "",
+                details: []
+            },
+
+            // COIFFURE - SOINS CAPILLAIRES
+            {
+                id: "coiffure-soins-shampoing",
+                category: "Coiffure",
+                group: "Coiffure",
+                subcategory: "Soins capillaires",
+                name: "Shampoing",
+                price: "30 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "coiffure-soins-defrisage",
+                category: "Coiffure",
+                group: "Coiffure",
+                subcategory: "Soins capillaires",
+                name: "Defrisage",
+                price: "100 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "coiffure-soins-olaplex",
+                category: "Coiffure",
+                group: "Coiffure",
+                subcategory: "Soins capillaires",
+                name: "Soins cheveux OLAPLEX",
+                price: "À partir de 300 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "coiffure-soins-reparateur",
+                category: "Coiffure",
+                group: "Coiffure",
+                subcategory: "Soins capillaires",
+                name: "Soins Réparateur",
+                price: "À partir de 250 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "coiffure-soins-lissage-omnia-diamond",
+                category: "Coiffure",
+                group: "Coiffure",
+                subcategory: "Soins capillaires",
+                name: "Lissage Omnia / Diamond",
+                price: "À partir de 800 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "coiffure-soins-brushing-court-mi-long",
+                category: "Coiffure",
+                group: "Coiffure",
+                subcategory: "Soins capillaires",
+                name: "Brushing court / Mi-long",
+                price: "60 DH - 80 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "coiffure-soins-brushing-long",
+                category: "Coiffure",
+                group: "Coiffure",
+                subcategory: "Soins capillaires",
+                name: "Brushing Long",
+                price: "100 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "coiffure-soins-babyliss",
+                category: "Coiffure",
+                group: "Coiffure",
+                subcategory: "Soins capillaires",
+                name: "Babyliss",
+                price: "150 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "coiffure-soins-pointes",
+                category: "Coiffure",
+                group: "Coiffure",
+                subcategory: "Soins capillaires",
+                name: "Pointes",
+                price: "50 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "coiffure-soins-coupes",
+                category: "Coiffure",
+                group: "Coiffure",
+                subcategory: "Soins capillaires",
+                name: "Coupes",
+                price: "150 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "coiffure-soins-coloration-complete",
+                category: "Coiffure",
+                group: "Coiffure",
+                subcategory: "Soins capillaires",
+                name: "Coloration Complete",
+                price: "À partir de 300 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "coiffure-soins-coloration-racine",
+                category: "Coiffure",
+                group: "Coiffure",
+                subcategory: "Soins capillaires",
+                name: "Coloration Racine",
+                price: "À partir de 200 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "coiffure-soins-balayage-ombre",
+                category: "Coiffure",
+                group: "Coiffure",
+                subcategory: "Soins capillaires",
+                name: "Balayage / Ombré",
+                price: "À partir de 800 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "coiffure-soins-detox-locs",
+                category: "Coiffure",
+                group: "Coiffure",
+                subcategory: "Soins capillaires",
+                name: "Detox Locs",
+                price: "À partir de 250 DH",
+                priceNote: "",
+                details: []
+            },
+
+            // COIFFURE - TRESSES
+            {
+                id: "coiffure-tresses-natte-africaine",
+                category: "Coiffure",
+                group: "Coiffure",
+                subcategory: "Tresses",
+                name: "Natte Africaine (8) (12)",
+                price: "80 DH - 100 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "coiffure-tresses-knotless-braids",
+                category: "Coiffure",
+                group: "Coiffure",
+                subcategory: "Tresses",
+                name: "KnotlessBraids",
+                price: "À partir de 250 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "coiffure-tresses-goddess-braids",
+                category: "Coiffure",
+                group: "Coiffure",
+                subcategory: "Tresses",
+                name: "Goddess braids",
+                price: "À partir de 200 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "coiffure-tresses-natte-avec-meches",
+                category: "Coiffure",
+                group: "Coiffure",
+                subcategory: "Tresses",
+                name: "Natte avec Mèches",
+                price: "À partir de 150 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "coiffure-tresses-twists",
+                category: "Coiffure",
+                group: "Coiffure",
+                subcategory: "Tresses",
+                name: "Twists",
+                price: "À partir de 100 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "coiffure-tresses-marley-twists",
+                category: "Coiffure",
+                group: "Coiffure",
+                subcategory: "Tresses",
+                name: "Marley Twists",
+                price: "À partir de 100 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "coiffure-tresses-locs-main-doeuvres",
+                category: "Coiffure",
+                group: "Coiffure",
+                subcategory: "Tresses",
+                name: "Locs (Main d’oeuvres)",
+                price: "À partir de 500 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "coiffure-tresses-resserrage-locs",
+                category: "Coiffure",
+                group: "Coiffure",
+                subcategory: "Tresses",
+                name: "Resserage Locs",
+                price: "À partir de 250 DH",
+                priceNote: "",
+                details: []
+            },
+
+            // COIFFURE - POSE PERRUQUES
+            {
+                id: "coiffure-perruques-wig-customization",
+                category: "Coiffure",
+                group: "Coiffure",
+                subcategory: "Pose perruques",
+                name: "Wig Customization",
+                price: "150 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "coiffure-perruques-sans-col",
+                category: "Coiffure",
+                group: "Coiffure",
+                subcategory: "Pose perruques",
+                name: "Pose Perruques sans col",
+                price: "200 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "coiffure-perruques-avec-col",
+                category: "Coiffure",
+                group: "Coiffure",
+                subcategory: "Pose perruques",
+                name: "Pose Perruques avec Col",
+                price: "250 DH",
+                priceNote: "",
+                details: []
+            },
+
+            // ÉPILATION
+            {
+                id: "epilation-complete-sans-maillot",
+                category: "Épilation",
+                group: "Épilation",
+                subcategory: "Épilation",
+                name: "Épilation Complète (sans maillot)",
+                price: "270 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "epilation-sourcils",
+                category: "Épilation",
+                group: "Épilation",
+                subcategory: "Épilation",
+                name: "Sourcils",
+                price: "40 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "epilation-duvet",
+                category: "Épilation",
+                group: "Épilation",
+                subcategory: "Épilation",
+                name: "Duvet",
+                price: "30 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "epilation-menton",
+                category: "Épilation",
+                group: "Épilation",
+                subcategory: "Épilation",
+                name: "Menton",
+                price: "30 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "epilation-aisselles",
+                category: "Épilation",
+                group: "Épilation",
+                subcategory: "Épilation",
+                name: "Aisselles",
+                price: "50 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "epilation-demi-jambes",
+                category: "Épilation",
+                group: "Épilation",
+                subcategory: "Épilation",
+                name: "Demi jambes",
+                price: "60 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "epilation-jambes-completes",
+                category: "Épilation",
+                group: "Épilation",
+                subcategory: "Épilation",
+                name: "Jambes completes",
+                price: "120 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "epilation-bord-de-maillot",
+                category: "Épilation",
+                group: "Épilation",
+                subcategory: "Épilation",
+                name: "Bord de maillot",
+                price: "70 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "epilation-maillot-complet",
+                category: "Épilation",
+                group: "Épilation",
+                subcategory: "Épilation",
+                name: "Maillot Complet",
+                price: "100 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "epilation-demi-bras",
+                category: "Épilation",
+                group: "Épilation",
+                subcategory: "Épilation",
+                name: "Demi bras",
+                price: "50 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "epilation-bras-complets",
+                category: "Épilation",
+                group: "Épilation",
+                subcategory: "Épilation",
+                name: "Bras complets",
+                price: "100 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "epilation-visage",
+                category: "Épilation",
+                group: "Épilation",
+                subcategory: "Épilation",
+                name: "Épilation visage",
+                price: "120 DH",
+                priceNote: "",
+                details: []
+            },
+
+            // MASSAGE & SOINS
+            {
+                id: "massage-maderotherapie",
+                category: "Massage & Soins",
+                group: "Massage & Soins",
+                subcategory: "Massage & Soins",
+                name: "Madérotherapie (Par Zone / 45min)",
+                price: "200 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "massage-pierre-chaude",
+                category: "Massage & Soins",
+                group: "Massage & Soins",
+                subcategory: "Massage & Soins",
+                name: "Massage Pierre Chaude (1 Heure)",
+                price: "200 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "massage-relaxant",
+                category: "Massage & Soins",
+                group: "Massage & Soins",
+                subcategory: "Massage & Soins",
+                name: "Massage Relaxant (1 Heure)",
+                price: "250 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "massage-tonifiant",
+                category: "Massage & Soins",
+                group: "Massage & Soins",
+                subcategory: "Massage & Soins",
+                name: "Massage Tonifiant (1 Heure)",
+                price: "300 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "massage-tete-epaule",
+                category: "Massage & Soins",
+                group: "Massage & Soins",
+                subcategory: "Massage & Soins",
+                name: "Massage Tête Épaule (1 Heure)",
+                price: "150 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "massage-amincissant",
+                category: "Massage & Soins",
+                group: "Massage & Soins",
+                subcategory: "Massage & Soins",
+                name: "Massage Amincissant (1 Heure)",
+                price: "300 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "massage-soin-visage-basique",
+                category: "Massage & Soins",
+                group: "Massage & Soins",
+                subcategory: "Massage & Soins",
+                name: "Soin de visage Basique",
+                price: "250 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "massage-hydrofaciale",
+                category: "Massage & Soins",
+                group: "Massage & Soins",
+                subcategory: "Massage & Soins",
+                name: "Hydrofaciale",
+                price: "500 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "massage-lifting-colombien",
+                category: "Massage & Soins",
+                group: "Massage & Soins",
+                subcategory: "Massage & Soins",
+                name: "Lifting Colombien (Par Séances)",
+                price: "200 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "massage-vagicial",
+                category: "Massage & Soins",
+                group: "Massage & Soins",
+                subcategory: "Massage & Soins",
+                name: "Vagicial",
+                price: "200 DH",
+                priceNote: "",
+                details: []
+            },
+
+            // MAKEUP - PERMANENT
+            {
+                id: "makeup-permanent-microblanding-une-seance",
+                category: "Makeup",
+                group: "Makeup",
+                subcategory: "Permanent",
+                name: "Microblanding (une séance)",
+                price: "700 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "makeup-permanent-microblanding-deux-seances",
+                category: "Makeup",
+                group: "Makeup",
+                subcategory: "Permanent",
+                name: "Microblanding (deux séances)",
+                price: "1200 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "makeup-permanent-retouches-microblanding",
+                category: "Makeup",
+                group: "Makeup",
+                subcategory: "Permanent",
+                name: "Retouches Microblanding",
+                price: "600 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "makeup-permanent-microshading-une-seance",
+                category: "Makeup",
+                group: "Makeup",
+                subcategory: "Permanent",
+                name: "Microshading (une séance)",
+                price: "600 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "makeup-permanent-microshading-deux-seances",
+                category: "Makeup",
+                group: "Makeup",
+                subcategory: "Permanent",
+                name: "Microshading (deux séances)",
+                price: "1000 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "makeup-permanent-retouches-microshading",
+                category: "Makeup",
+                group: "Makeup",
+                subcategory: "Permanent",
+                name: "Retouches Microshading",
+                price: "500 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "makeup-permanent-lift-brow",
+                category: "Makeup",
+                group: "Makeup",
+                subcategory: "Permanent",
+                name: "Lift Brow",
+                price: "À partir de 400 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "makeup-permanent-cils-soie-naturel",
+                category: "Makeup",
+                group: "Makeup",
+                subcategory: "Permanent",
+                name: "Cils en soie Naturel",
+                price: "150 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "makeup-permanent-cils-soie-glamour",
+                category: "Makeup",
+                group: "Makeup",
+                subcategory: "Permanent",
+                name: "Cils en soie Glamour",
+                price: "250 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "makeup-permanent-cils-soie-channel",
+                category: "Makeup",
+                group: "Makeup",
+                subcategory: "Permanent",
+                name: "Cils en soie Channel",
+                price: "350 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "makeup-permanent-rehaussement-cils",
+                category: "Makeup",
+                group: "Makeup",
+                subcategory: "Permanent",
+                name: "Rehaussement des cils",
+                price: "À partir de 400 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "makeup-permanent-faux-cils-direct",
+                category: "Makeup",
+                group: "Makeup",
+                subcategory: "Permanent",
+                name: "Faux Cils Direct",
+                price: "100 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "makeup-permanent-coloration-sourcils",
+                category: "Makeup",
+                group: "Makeup",
+                subcategory: "Permanent",
+                name: "Coloration Sourcils",
+                price: "100 DH",
+                priceNote: "",
+                details: []
+            },
+
+            // MAKEUP - CÉRÉMONIE
+            {
+                id: "makeup-ceremonie-jour",
+                category: "Makeup",
+                group: "Makeup",
+                subcategory: "Cérémonie",
+                name: "Makeup Jour",
+                price: "150 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "makeup-ceremonie-soir",
+                category: "Makeup",
+                group: "Makeup",
+                subcategory: "Cérémonie",
+                name: "Makeup Soir",
+                price: "200 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "makeup-ceremonie-shooting",
+                category: "Makeup",
+                group: "Makeup",
+                subcategory: "Cérémonie",
+                name: "Makeup Shooting",
+                price: "250 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "makeup-ceremonie-anniversaire",
+                category: "Makeup",
+                group: "Makeup",
+                subcategory: "Cérémonie",
+                name: "Makeup Anniversaire",
+                price: "250 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "makeup-ceremonie-dote",
+                category: "Makeup",
+                group: "Makeup",
+                subcategory: "Cérémonie",
+                name: "Makeup Dote",
+                price: "350 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "makeup-ceremonie-mariage",
+                category: "Makeup",
+                group: "Makeup",
+                subcategory: "Cérémonie",
+                name: "Makeup Mariage",
+                price: "500 DH",
+                priceNote: "",
+                details: []
+            },
+            {
+                id: "makeup-ceremonie-evenement-journee",
+                category: "Makeup",
+                group: "Makeup",
+                subcategory: "Cérémonie",
+                name: "Makeup Evenement (une journée)",
+                price: "1000 DH",
+                priceNote: "",
+                details: []
+            }
+        ];
+
+        // --- RENDER LOGIC ---
+        const servicesListContainer = document.getElementById('servicesList');
+        const searchInput = document.getElementById('serviceSearch');
+        const categoryFilter = document.getElementById('categoryFilter');
+        const resultsCountRef = document.getElementById('resultsCount');
+
+        function renderServices(items) {
+            servicesListContainer.innerHTML = '';
+
+            if (resultsCountRef) {
+                resultsCountRef.textContent = `${items.length} service${items.length !== 1 ? 's' : ''} trouvé${items.length !== 1 ? 's' : ''}`;
+            }
+
+            // Group by Category
+            const categories = ["Hammam", "Onglerie", "Coiffure", "Épilation", "Massage & Soins", "Makeup"];
+            const grouped = {};
+
+            items.forEach(item => {
+                if (!grouped[item.category]) grouped[item.category] = [];
+                grouped[item.category].push(item);
+            });
+
+            let hasResults = false;
+
+            categories.forEach(cat => {
+                if (grouped[cat] && grouped[cat].length > 0) {
+                    hasResults = true;
+
+                    // Create Category Section
+                    const categorySection = document.createElement('div');
+                    categorySection.className = 'mb-16 scroll-mt-32';
+                    categorySection.id = `cat-${cat}`;
+
+                    const header = document.createElement('div');
+                    header.className = 'flex items-center mb-8';
+                    header.innerHTML = `
+                         <h2 class="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-primary/10 text-primary font-bold text-sm uppercase tracking-widest shadow-sm">
+                            ${cat}
+                        </h2>
+                        <div class="h-px bg-gray-100 dark:bg-gray-800 flex-grow ml-4"></div>
+                    `;
+                    categorySection.appendChild(header);
+
+                    const grid = document.createElement('div');
+                    grid.className = 'grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8';
+
+                    // Track index for staggered delay within the category
+                    let delayIndex = 0;
+
+                    grouped[cat].forEach(service => {
+                        delayIndex++;
+                        // Cap delay at 5 (0.5s) to avoid waiting too long for last items
+                        const safeDelay = delayIndex > 5 ? 5 : delayIndex;
+
+                        const card = document.createElement('div');
+                        // Add animation classes: anim-init starts hidden, data-animate tells observer what to do
+                        card.className = `bg-white dark:bg-surface-dark rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden group border border-gray-50 dark:border-gray-800 anim-init anim-delay-${safeDelay}`;
+                        card.setAttribute('data-animate', 'fade-up');
+                        card.setAttribute('data-category', service.category);
+
+                        // Use provided image OR category placeholder
+                        const imageUrl = service.image || categoryImages[service.category] || "https://via.placeholder.com/600x400";
+
+                        // Join details correctly
+                        const detailsText = service.details.join(' ');
+                        card.setAttribute('data-description', (service.name + ' ' + detailsText).toLowerCase());
+
+                        // Build Details HTML
+                        let detailsHtml = '';
+                        if (service.details && service.details.length > 0) {
+                            // Comma separated list for cleaner look in card
+                            const listStr = service.details.join(', ');
+                            detailsHtml = `<p class="text-sm text-gray-500 dark:text-gray-400 mt-3 line-clamp-2" title="${listStr}">${listStr}</p>`;
+                        }
+
+                        // Build Subcategory Label
+                        let metaHtml = '';
+                        if (service.subcategory) {
+                            metaHtml = `<span class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1 block">${service.subcategory}</span>`;
+                        } else {
+                            metaHtml = `<span class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1 block">&nbsp;</span>`; // spacer
+                        }
+
+                        // Price Note Badge
+                        let priceNoteHtml = '';
+                        if (service.priceNote) {
+                            priceNoteHtml = `<span class="inline-block mt-2 px-2 py-1 bg-amber-50 text-amber-700 text-[10px] font-bold uppercase rounded-md">${service.priceNote}</span>`;
+                        }
+
+                        card.innerHTML = `
+                             <div class="relative h-48 overflow-hidden bg-gray-100">
+                                <img src="${imageUrl}" alt="${service.name}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-60"></div>
+                            </div>
+                            <div class="p-6">
+                                ${metaHtml}
+                                <div class="flex justify-between items-start mb-2 gap-4">
+                                    <h3 class="font-bold text-gray-900 dark:text-white text-lg leading-tight group-hover:text-primary transition-colors">${service.name}</h3>
+                                    <span class="font-bold text-primary font-display text-lg whitespace-nowrap">${service.price}</span>
+                                </div>
+                                ${detailsHtml}
+                                ${priceNoteHtml}
+                            </div>
+                        `;
+                        grid.appendChild(card);
+
+                        // If observer exists (script loaded), observe this new card
+                        if (window.animObserver) {
+                            window.animObserver.observe(card);
+                        }
+                    });
+
+                    categorySection.appendChild(grid);
+                    servicesListContainer.appendChild(categorySection);
+                }
+            });
+
+            if (!hasResults) {
+                servicesListContainer.innerHTML = `
+                    <div class="text-center py-20 bg-gray-50 dark:bg-surface-dark rounded-3xl border border-dashed border-gray-300">
+                        <svg class="h-12 w-12 text-gray-400 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <p class="text-xl text-gray-500 font-medium">Aucun service trouvé.</p>
+                        <p class="text-gray-400 mt-2">Essayez d'autres mots-clés ou effacez les filtres.</p>
+                        <button onclick="clearResets()" class="mt-6 px-6 py-2 bg-white border border-gray-300 rounded-full text-gray-600 font-bold hover:bg-gray-50 hover:text-primary transition-colors shadow-sm">Effacer les filtres</button>
+                    </div>
+                `;
+            }
+        }
+
+        function filterServices() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const selectedCategory = categoryFilter.value;
+
+            const filtered = services.filter(service => {
+                const matchesCategory = selectedCategory === "" || service.category === selectedCategory;
+                const matchesSearch = service.name.toLowerCase().includes(searchTerm) ||
+                    (service.priceNote && service.priceNote.toLowerCase().includes(searchTerm)) ||
+                    (service.subcategory && service.subcategory.toLowerCase().includes(searchTerm)) ||
+                    service.details.some(d => d.toLowerCase().includes(searchTerm));
+
+                return matchesCategory && matchesSearch;
+            });
+
+            renderServices(filtered);
+        }
+
+        function clearResets() {
+            searchInput.value = '';
+            categoryFilter.value = '';
+            renderServices(services);
+        }
+
+        // Event Listeners
+        searchInput.addEventListener('input', filterServices);
+        categoryFilter.addEventListener('change', filterServices);
+
+        // Initial Render
+        renderServices(services);
+
+    </script>
+    <script src="public/animations.js"></script>
+</body>
+
+</html>

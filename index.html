@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>FatmaBea Luxury Spa Landing Page</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;display=swap"
+        rel="stylesheet" />
+    <link href="public/animations.css" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#046307", // Emerald Green
+                        champagne: "#F5F5DC",
+                        "background-light": "#FDFCF5", // Very light off-white/cream for readability
+                        "background-dark": "#050a06", // Deep dark green/black
+                        "surface-light": "#F5F5DC", // The requested champagne color for sections
+                        "surface-dark": "#0f1f12",
+                    },
+                    fontFamily: {
+                        display: ["Playfair Display", "serif"],
+                        body: ["Lato", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                        'pill': '9999px',
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                    }
+                },
+            },
+        };
+    </script>
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #046307;
+            border-radius: 4px;
+        }
+
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-200 font-body antialiased transition-colors duration-300">
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed w-full z-50 top-0 transition-all duration-300 bg-transparent text-white anim-init"
+        data-onload-anim="fade">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center z-20">
+                    <a class="flex items-center" href="#">
+                        <img id="nav-logo" alt="FatmaBea Logo"
+                            class="h-8 md:h-12 w-auto object-contain transition-all duration-300 brightness-0 invert"
+                            src="public/logo.png" />
+                    </a>
+                </div>
+
+                <!-- Centered Links -->
+                <div id="nav-links"
+                    class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 space-x-12 items-center text-white transition-colors duration-300">
+                    <a class="text-sm font-light hover:text-champagne transition-colors"
+                        href="services.html">Services</a>
+                    <a class="text-sm font-light hover:text-champagne transition-colors" href="#about">About</a>
+                    <a class="text-sm font-light hover:text-champagne transition-colors" href="#atmosphere">Gallery</a>
+                </div>
+
+                <!-- Right CTA -->
+                <div class="hidden md:flex items-center space-x-6 z-20">
+                    <a id="nav-cta"
+                        class="px-8 py-2.5 bg-transparent border border-white text-white rounded-full hover:bg-white hover:text-black transition-all duration-300 text-sm font-light"
+                        href="#contact">
+                        Contact
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button class="text-white hover:text-champagne focus:outline-none" type="button">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        const navbar = document.getElementById('navbar');
+        const navLogo = document.getElementById('nav-logo');
+        const navLinks = document.getElementById('nav-links');
+        const navCta = document.getElementById('nav-cta');
+        const navLinksAnchors = navLinks.querySelectorAll('a');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                // Scrolled State
+                navbar.classList.remove('bg-transparent', 'text-white');
+                navbar.classList.add('bg-background-light/95', 'backdrop-blur-md', 'shadow-sm', 'text-primary'); // Soft cream background
+
+                navLogo.classList.remove('brightness-0', 'invert');
+
+                navLinks.classList.remove('text-white');
+                navLinks.classList.add('text-primary');
+
+                navCta.classList.remove('border-white', 'text-white', 'hover:bg-white', 'hover:text-black');
+                navCta.classList.add('border-primary', 'text-primary', 'hover:bg-primary', 'hover:text-white');
+            } else {
+                // Top State
+                navbar.classList.add('bg-transparent', 'text-white');
+                navbar.classList.remove('bg-background-light/95', 'backdrop-blur-md', 'shadow-sm', 'text-primary');
+
+                navLogo.classList.add('brightness-0', 'invert');
+
+                navLinks.classList.add('text-white');
+                navLinks.classList.remove('text-primary');
+
+                navCta.classList.add('border-white', 'text-white', 'hover:bg-white', 'hover:text-black');
+                navCta.classList.remove('border-primary', 'text-primary', 'hover:bg-primary', 'hover:text-white');
+            }
+        });
+    </script>
+    <header class="relative h-screen min-h-[700px] flex items-end overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <video autoplay muted loop playsinline class="w-full h-full object-cover">
+                <source src="public/vediohero.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-black/20">
+            </div>
+        </div>
+
+        <div class="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 pb-20 md:pb-32">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
+                <div class="md:col-span-7">
+                    <h1 class="font-display text-6xl md:text-8xl lg:text-9xl text-white leading-none tracking-tight anim-init"
+                        data-onload-anim="fade-up" data-anim-delay="1">
+                        Restore Body <br />
+                        <span class="italic font-light">And Spirit</span>
+                    </h1>
+                </div>
+                <div class="md:col-span-5 pb-2">
+                    <p class="text-white/90 text-lg font-light mb-8 leading-relaxed max-w-md anim-init"
+                        data-onload-anim="fade-up" data-anim-delay="2">
+                        Experience a healing touch designed to release stress and restore your natural balance in a
+                        sanctuary of calm.
+                    </p>
+                    <a class="inline-block px-10 py-4 bg-white text-black font-medium rounded-full hover:bg-champagne transition-all duration-300 transform hover:scale-105 shadow-lg anim-init"
+                        href="#contact" data-onload-anim="fade-up" data-anim-delay="3">
+                        Book Appointment
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="py-24 bg-background-light dark:bg-background-dark anim-init" data-animate="fade-up" id="about">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-16 items-start">
+
+                <div class="lg:w-1/3">
+                    <h2 class="font-display text-4xl text-gray-900 dark:text-white">
+                        About <span class="italic text-primary">FatmaBea</span>
+                    </h2>
+                    <div class="w-16 h-px bg-primary mt-6 mb-6"></div>
+                    <p class="text-xs font-bold tracking-widest uppercase text-gray-500 dark:text-gray-400">
+                        Sanctuary of Wellness <br /> Est. 2024
+                    </p>
+                </div>
+                <div class="lg:w-2/3">
+                    <p class="text-xl md:text-2xl font-display leading-relaxed text-gray-700 dark:text-gray-300">
+                        Our expert therapists offer a healing touch to release stress, reduce pain, and restore your
+                        natural balance. In a peaceful, welcoming environment designed to support your total wellness
+                        journey, we blend the rich traditions of the Moroccan Hammam with sophisticated Parisian
+                        skincare techniques.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-24 bg-surface-light dark:bg-surface-dark relative overflow-hidden anim-init"
+        data-animate="fade-up" id="services">
+        <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent">
+        </div>
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h2 class="font-display text-5xl text-gray-900 dark:text-white mb-4">Our Top <span
+                        class="italic text-primary">Rituals</span></h2>
+                <p class="text-gray-600 dark:text-gray-400 max-w-lg mx-auto">Curated selection of body therapies
+                    designed to soothe your nerves and renew your energy.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden rounded-[100px] aspect-[2/3] mb-6 shadow-xl">
+                        <img alt="Moroccan Hammam"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            src="https://i.pinimg.com/1200x/7d/bd/9c/7dbd9cf259afefe1eb919b0a62a9c4c5.jpg" />
+                        <div
+                            class="absolute inset-0 bg-primary/20 group-hover:bg-primary/10 transition-colors duration-300">
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <h3
+                            class="font-display text-xl text-gray-900 dark:text-white mb-2 group-hover:text-primary transition-colors">
+                            Moroccan Hammam</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Purifying Steam &amp; Scrub</p>
+                    </div>
+                </div>
+                <div class="group cursor-pointer mt-0 lg:mt-12">
+                    <div class="relative overflow-hidden rounded-[100px] aspect-[2/3] mb-6 shadow-xl">
+                        <img alt="Parisian Facial"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            src="https://i.pinimg.com/736x/bc/56/d6/bc56d6017fc41505fc78f54fd1fe9d2d.jpg" />
+                        <div
+                            class="absolute inset-0 bg-primary/20 group-hover:bg-primary/10 transition-colors duration-300">
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <h3
+                            class="font-display text-xl text-gray-900 dark:text-white mb-2 group-hover:text-primary transition-colors">
+                            Parisian Facial</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Radiance &amp; Anti-Aging</p>
+                    </div>
+                </div>
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden rounded-[100px] aspect-[2/3] mb-6 shadow-xl">
+                        <img alt="Reflexology"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            src="https://i.pinimg.com/1200x/22/6a/25/226a25765878c930726eb94c4c089ba2.jpg" />
+                        <div
+                            class="absolute inset-0 bg-primary/20 group-hover:bg-primary/10 transition-colors duration-300">
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <h3
+                            class="font-display text-xl text-gray-900 dark:text-white mb-2 group-hover:text-primary transition-colors">
+                            Reflexology</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Balance &amp; Healing</p>
+                    </div>
+                </div>
+                <div class="group cursor-pointer mt-0 lg:mt-12">
+                    <div class="relative overflow-hidden rounded-[100px] aspect-[2/3] mb-6 shadow-xl">
+                        <img alt="Hot Stone Therapy"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            src="https://i.pinimg.com/1200x/06/04/1d/06041dddf5dfba51936a2a46b759b234.jpg" />
+                        <div
+                            class="absolute inset-0 bg-primary/20 group-hover:bg-primary/10 transition-colors duration-300">
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <h3
+                            class="font-display text-xl text-gray-900 dark:text-white mb-2 group-hover:text-primary transition-colors">
+                            Hot Stone Therapy</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Deep Muscle Relief</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-16 bg-primary dark:bg-black text-champagne border-y border-champagne/10 anim-init"
+        data-animate="fade-up">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-champagne/20">
+                <div class="p-4">
+                    <span class="block font-display text-4xl md:text-5xl mb-2">100%</span>
+                    <span class="text-xs uppercase tracking-widest opacity-80">Client Satisfaction</span>
+                </div>
+                <div class="p-4">
+                    <span class="block font-display text-4xl md:text-5xl mb-2">10+</span>
+                    <span class="text-xs uppercase tracking-widest opacity-80">Years Experience</span>
+                </div>
+                <div class="p-4">
+                    <span class="block font-display text-4xl md:text-5xl mb-2">30+</span>
+                    <span class="text-xs uppercase tracking-widest opacity-80">Treatments Offered</span>
+                </div>
+                <div class="p-4">
+                    <span class="block font-display text-4xl md:text-5xl mb-2">24/7</span>
+                    <span class="text-xs uppercase tracking-widest opacity-80">Online Booking</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-24 bg-background-light dark:bg-background-dark anim-init" data-animate="fade-up" id="atmosphere">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row gap-12 mb-16">
+                <div class="md:w-1/2">
+                    <h2 class="font-display text-4xl md:text-5xl text-gray-900 dark:text-white leading-tight">
+                        Our Spa Creates A Sanctuary Of Calm With Every <span class="italic text-primary">Treatment You
+                            Receive</span>
+                    </h2>
+                </div>
+                <div class="md:w-1/2 flex flex-col justify-end">
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        We combine traditional Moroccan techniques with modern wellness therapies to create a spa
+                        experience that soothes the body, nurtures the mind, and recharges your spirit in one beautiful
+                        session.
+                    </p>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[200px]">
+                <div class="md:col-span-1 md:row-span-2 relative group overflow-hidden rounded-2xl">
+                    <img alt="Spa Oils"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBn5QKbibVvO9GOApiR7jAhdYK7LL3_1LhuTicTAcv9ZPd45_7Ps_CE4jqS66ysA2cd5NSCj66EvAL6NsTidNm84s12pgx9o7wOd2iJ-M3UhrCIFFT0kbA1OuwXBIYj_W0IotCJNNM9-Qt40HhV_Ir2QjZNNyKqrhKqF8-q9vIMR38L7JLOX2q4Ncf2xwr8Kl_R2xbFeC849xdxhZEdAXMiK5-Rc1_54aX7IZjcDhnYN8VagGMeoWuKUZ3u2i_LZz1LDq9noTAYR-Y" />
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+                </div>
+                <div class="md:col-span-2 md:row-span-1 relative group overflow-hidden rounded-2xl">
+                    <img alt="Relaxing Massage"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        src="https://i.pinimg.com/1200x/05/20/34/052034d4e91e0215a30b4b900792cb56.jpg" />
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+                </div>
+                <div
+                    class="md:col-span-1 md:row-span-1 relative group overflow-hidden rounded-2xl bg-champagne dark:bg-surface-dark flex items-center justify-center p-6 text-center">
+                    <div>
+                        <span class="block text-primary dark:text-emerald-400 mb-2">
+                            <svg class="w-8 h-8 mx-auto" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z">
+                                </path>
+                            </svg>
+                        </span>
+                        <p class="font-display italic text-gray-800 dark:text-gray-200 text-lg">"Pure Bliss"</p>
+                    </div>
+                </div>
+                <div class="md:col-span-1 md:row-span-1 relative group overflow-hidden rounded-2xl">
+                    <img alt="Spa Detail"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBACFeYtA5Ehcmm1-4BPiHU-6-VDGAWLclDL6ff5YZFyoXf1PQrQuLv4ZqlHdHymFfIas7sG0XoRYfVhL44Sm4dSXZf6T5zj1TE0dSS4EzUnp6z9FvXeZkhRLZTryfrSrSQZKNWUeNyRlLTN43UUdm7mG0LDqgWUsc4JI9t0Y9T63Zv68e34eGSHkMqtAv3VdXI8_omj9TCfsRbp2u6tMuDF1qQjQeN4IZsYKp_yChlm4Qm7psUYROpjtnkVeUjh0T2ardz70uN67o" />
+                </div>
+                <div class="md:col-span-2 md:row-span-1 relative group overflow-hidden rounded-2xl">
+                    <img alt="Spa Interior"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOV8BxyqQeqiwEBzecjdN6g1WfTWNWnAK-8xpGiC6rYmYxVZ4vVps-Jf2xUuUxZkswRo3f8bPU7Gjo_87mBIq5O5Det92l9t8SXXqZS5SOLaUpjueuNnNaMQZRu_FvR6Gs34cD6DIUQwnVtNLwPQU3njEBxq8AqpERaKtz2CKCUpz1LsEFegaBelaxOBEGbwC6G7HbILCLUvQwdoHCSPBNLSUUx5_OHhqsUAe_8xbqv1qT_Su8lwCH6bHNnO2wsXnwD6KGxXJmJwo" />
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-24 bg-surface-light dark:bg-surface-dark anim-init" data-animate="fade-up">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl text-gray-900 dark:text-white">Our Client <span
+                        class="italic text-primary">Testimonials</span></h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div
+                    class="bg-white dark:bg-background-dark p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800">
+                    <svg class="w-8 h-8 text-primary/30 mb-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V11C14.017 11.5523 13.5693 12 13.017 12H12.017V5H22.017V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM5.0166 21L5.0166 18C5.0166 16.8954 5.91203 16 7.0166 16H10.0166C10.5689 16 11.0166 15.5523 11.0166 15V9C11.0166 8.44772 10.5689 8 10.0166 8H6.0166C5.46432 8 5.0166 8.44772 5.0166 9V11C5.0166 11.5523 4.56889 12 4.0166 12H3.0166V5H13.0166V15C13.0166 18.3137 10.3303 21 7.0166 21H5.0166Z">
+                        </path>
+                    </svg>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6 font-light leading-relaxed">"The atmosphere was
+                        calming, and the massage exceeded expectations. I felt like every touch was tailored to my
+                        needs. Absolutely becoming my regular spot."</p>
+                    <div class="flex items-center">
+                        <img alt="Brooklyn Simmons" class="w-10 h-10 rounded-full object-cover mr-4"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjMnLK8e67YdUeXP1WxXrKTfVlXlPIlHqzdsilu4HiTBzFJlPPmUjdOR97t8HYOxmCruohIJF6k3M60p05y-DVl2hcWFey91pT_Kt7J2V3nonSSQIv2031PDKsGcmNrlchztTrtyK3sWsoPGnlT91--gEkmYlnPdugvhgY5d_rXxfKZF2hWFHCGgDb05LboctCMjsm7Ijr7mUTGPDNNesgcv0TzTYB9WJYqHXknzd3UHHyrJ18ahXTfb_eqFknVqLeGHkK5g0ILG8" />
+                        <div>
+                            <h4 class="font-display font-bold text-gray-900 dark:text-white">Brooklyn Simmons</h4>
+                            <span class="text-xs text-primary uppercase tracking-wider">Regular Client</span>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="bg-white dark:bg-background-dark p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800">
+                    <svg class="w-8 h-8 text-primary/30 mb-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V11C14.017 11.5523 13.5693 12 13.017 12H12.017V5H22.017V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM5.0166 21L5.0166 18C5.0166 16.8954 5.91203 16 7.0166 16H10.0166C10.5689 16 11.0166 15.5523 11.0166 15V9C11.0166 8.44772 10.5689 8 10.0166 8H6.0166C5.46432 8 5.0166 8.44772 5.0166 9V11C5.0166 11.5523 4.56889 12 4.0166 12H3.0166V5H13.0166V15C13.0166 18.3137 10.3303 21 7.0166 21H5.0166Z">
+                        </path>
+                    </svg>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6 font-light leading-relaxed">"Every visit here feels
+                        like a complete reset for my mind and body. The team pays close attention to what you need and
+                        always delivers an amazing experience."</p>
+                    <div class="flex items-center">
+                        <img alt="Leslie Alexander" class="w-10 h-10 rounded-full object-cover mr-4"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2Bmmyw69I4oUNWFUnntoKF8up_poaCv7aqKKI7eMUrp8v4mmUB20Hfv2MduvlqJIqqubcOA_R6pIRH2v6BAHtgmj-mXPNRHp_j_GdsNYa9MOLIAkqGwYv6fhUEeL9qeugRikhLWo8hHPsngGnVnbyvrfX_psclFZibM7okDfXqZaSVdv1r3ZbJLxTBHH_KvMKklwvrvO8_rJQV2sq3R-K6Lk0k14nsqRuuAuK1zNSPs1pIyowb0IKlra0Q4lvjntrKM2U1BON1V8" />
+                        <div>
+                            <h4 class="font-display font-bold text-gray-900 dark:text-white">Leslie Alexander</h4>
+                            <span class="text-xs text-primary uppercase tracking-wider">Medical Assistant</span>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="bg-white dark:bg-background-dark p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800">
+                    <svg class="w-8 h-8 text-primary/30 mb-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V11C14.017 11.5523 13.5693 12 13.017 12H12.017V5H22.017V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM5.0166 21L5.0166 18C5.0166 16.8954 5.91203 16 7.0166 16H10.0166C10.5689 16 11.0166 15.5523 11.0166 15V9C11.0166 8.44772 10.5689 8 10.0166 8H6.0166C5.46432 8 5.0166 8.44772 5.0166 9V11C5.0166 11.5523 4.56889 12 4.0166 12H3.0166V5H13.0166V15C13.0166 18.3137 10.3303 21 7.0166 21H5.0166Z">
+                        </path>
+                    </svg>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6 font-light leading-relaxed">"The most authentic
+                        Moroccan experience I've had outside of Marrakech. The oils they use are divine and the service
+                        is impeccable."</p>
+                    <div class="flex items-center">
+                        <img alt="Savannah Nguyen" class="w-10 h-10 rounded-full object-cover mr-4"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOR6dGe66n0XPV8aprnHcrrL4Br15Bg_CjmhheYWRj4GozNuH0b9UMmTkQUlaZudcAxQ9byJMV64GyVzxbmvDPA7IN5i7xXIzTJABSEbGFf177D9qrMshljOseXV0r7kDNGQfpXiV0vwiZ21C0HrrRe46PfyrSrGR8B0SDaE07ojNYNjSXAWYPGIXATRLD7trDVsy5HJIOGue3EbmjsqMzcCwCShKqvcuH65XNw9hQ1T7bXILOcCn1ns0cubYpMQJiQcB7eroAjBA" />
+                        <div>
+                            <h4 class="font-display font-bold text-gray-900 dark:text-white">Savannah Nguyen</h4>
+                            <span class="text-xs text-primary uppercase tracking-wider">Lifestyle Blogger</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-center mt-8 space-x-2">
+                <span class="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-700 cursor-pointer hover:bg-primary"></span>
+                <span class="w-2 h-2 rounded-full bg-primary cursor-pointer"></span>
+                <span class="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-700 cursor-pointer hover:bg-primary"></span>
+            </div>
+        </div>
+    </section>
+    <section class="py-24 bg-background-light dark:bg-background-dark" id="contact">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="bg-white dark:bg-surface-dark rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
+                <div class="md:w-1/2 p-10 lg:p-16 flex flex-col justify-center">
+                    <h2 class="font-display text-4xl text-gray-900 dark:text-white mb-2">Book Your</h2>
+                    <h2 class="font-display text-4xl italic text-primary mb-8">Appointment Today</h2>
+                    <form id="booking-form" action="#" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="sr-only" for="first-name">First Name</label>
+                                <input
+                                    class="w-full bg-background-light dark:bg-background-dark border-0 rounded-lg p-4 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-1 focus:ring-primary"
+                                    id="first-name" placeholder="First Name" type="text" required />
+                            </div>
+                            <div>
+                                <label class="sr-only" for="last-name">Last Name</label>
+                                <input
+                                    class="w-full bg-background-light dark:bg-background-dark border-0 rounded-lg p-4 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-1 focus:ring-primary"
+                                    id="last-name" placeholder="Last Name" type="text" required />
+                            </div>
+                        </div>
+                        <div>
+                            <label class="sr-only" for="email">Email</label>
+                            <input
+                                class="w-full bg-background-light dark:bg-background-dark border-0 rounded-lg p-4 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-1 focus:ring-primary"
+                                id="email" placeholder="Email Address" type="email" required />
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="sr-only" for="date">Date</label>
+                                <input
+                                    class="w-full bg-background-light dark:bg-background-dark border-0 rounded-lg p-4 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-1 focus:ring-primary"
+                                    id="date" type="date" required />
+                            </div>
+                            <div>
+                                <label class="sr-only" for="service">Service</label>
+                                <select
+                                    class="w-full bg-background-light dark:bg-background-dark border-0 rounded-lg p-4 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-1 focus:ring-primary"
+                                    id="service" required>
+                                    <option value="">Select Service</option>
+                                    <option>Moroccan Hammam</option>
+                                    <option>Parisian Facial</option>
+                                    <option>Reflexology</option>
+                                    <option>Hot Stone Massage</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button
+                            class="w-full bg-primary text-white font-bold py-4 rounded-lg hover:bg-emerald-800 transition-colors uppercase tracking-wider text-sm mt-4"
+                            type="submit">
+                            Book Appointment
+                        </button>
+                    </form>
+                </div>
+                <div class="md:w-1/2 relative min-h-[400px]">
+                    <img alt="Spa Beauty" class="absolute inset-0 w-full h-full object-cover"
+                        src="https://i.pinimg.com/1200x/09/67/a1/0967a123068ce32206989c1668b4059c.jpg" />
+                    <div class="absolute inset-0 bg-primary/20 mix-blend-multiply"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-surface-dark text-white pt-20 pb-10 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="md:col-span-1">
+                    <a class="font-display text-4xl italic font-semibold text-white mb-6 block" href="#">FatmaBea</a>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Taking time for yourself isn't selfish—it's essential. Regular massage helps maintain your
+                        physical and emotional well-being over time.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-colors"
+                            href="#">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z">
+                                </path>
+                            </svg>
+                        </a>
+                        <a class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-colors"
+                            href="#">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="font-bold text-white mb-6 uppercase tracking-wider text-sm">Company</h5>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li><a class="hover:text-primary transition-colors" href="#">Treatment</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Booking</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Therapist</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Blog</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Career</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold text-white mb-6 uppercase tracking-wider text-sm">Contact</h5>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li>Phone: +1 (555) 000-0000</li>
+                        <li>Email: Hello@FatmaBea.com</li>
+                        <li>123 Wellness Street, <br />Reluxation City, SPA 45678</li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold text-white mb-6 uppercase tracking-wider text-sm">Policy</h5>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li><a class="hover:text-primary transition-colors" href="#">Terms</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Policy</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Cancellation</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-xs uppercase tracking-widest">
+                <p>© Copyright 2025, All Rights Reserved by FatmaBea</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const bookingForm = document.getElementById('booking-form');
+            if (bookingForm) {
+                bookingForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    const firstName = document.getElementById('first-name').value.trim();
+                    const lastName = document.getElementById('last-name').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const date = document.getElementById('date').value;
+                    const service = document.getElementById('service').value;
+
+                    if (!firstName || !lastName || !email || !date || !service) {
+                        alert('Veuillez remplir tous les champs.');
+                        return;
+                    }
+
+                    const SPA_WHATSAPP_NUMBER = "212717837586";
+                    const message = `Bonjour, je souhaite réserver un rendez-vous :
+    
+Nom : ${firstName} ${lastName}
+Email : ${email}
+Date souhaitée : ${date}
+Service : ${service}
+
+Merci de me confirmer la disponibilité.`;
+
+                    const encodedMessage = encodeURIComponent(message);
+                    const whatsappUrl = `https://wa.me/${SPA_WHATSAPP_NUMBER}?text=${encodedMessage}`;
+
+                    window.open(whatsappUrl, '_blank');
+                });
+            }
+        });
+    </script>
+    <script src="public/animations.js"></script>
+</body>
+
+</html>
